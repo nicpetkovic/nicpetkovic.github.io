@@ -1,5 +1,186 @@
 <!DOCTYPE html>
-<html>
-<head><title>My Site</title></head>
-<body><h1>Hello, world</h1></body>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nicola Petkovic — AI &amp; ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F4F5F7;
+    --panel:#FFFFFF;
+    --ink:#16171B;
+    --muted:#6B6D76;
+    --accent:#1A41E6;
+    --accent-soft:rgba(26,65,230,0.08);
+    --line:#E4E6EB;
+    --display:"Space Grotesk",system-ui,sans-serif;
+    --body:"Inter",system-ui,sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:clamp(24px,6vw,72px) 20px;
+  }
+  .card{
+    max-width:680px;
+    width:100%;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:clamp(30px,5.5vw,56px);
+    animation:rise .6s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--accent);display:inline-block}
+
+  h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(38px,8vw,60px);
+    line-height:1.02;
+    letter-spacing:-.025em;
+    margin:16px 0 18px;
+  }
+  h1 .dot{color:var(--accent)}
+
+  .lede{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(18px,3.2vw,22px);
+    line-height:1.34;
+    letter-spacing:-.01em;
+    max-width:40ch;
+    margin-bottom:18px;
+  }
+  .intro{
+    font-size:clamp(15px,2.4vw,16.5px);
+    color:var(--muted);
+    max-width:54ch;
+  }
+  .intro strong{color:var(--ink);font-weight:500}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .field-label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:26px;
+  }
+  .tag{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink);
+    background:var(--accent-soft);
+    border:1px solid rgba(26,65,230,.18);
+    border-radius:999px;
+    padding:6px 12px;
+  }
+
+  .cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:clamp(30px,5vw,40px);
+    padding-top:26px;
+    border-top:1px solid var(--line);
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:13px;
+    text-decoration:none;
+    border-radius:9px;
+    padding:11px 18px;
+    transition:transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn.primary{
+    background:var(--accent);
+    color:#fff;
+    border:1px solid var(--accent);
+  }
+  .btn.primary:hover,.btn.primary:focus-visible{background:#1235c4;border-color:#1235c4;outline:none}
+  .btn.ghost{
+    color:var(--ink);
+    border:1px solid var(--line);
+    background:transparent;
+  }
+  .btn.ghost:hover,.btn.ghost:focus-visible{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);outline:none}
+
+  .now{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    margin-top:22px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+  }
+  .pulse{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 0 rgba(26,65,230,.4);
+    animation:pulse 2.2s infinite;
+    flex:none;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(26,65,230,.35)}
+    70%{box-shadow:0 0 0 7px rgba(26,65,230,0)}
+    100%{box-shadow:0 0 0 0 rgba(26,65,230,0)}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .card{animation:none}
+    .pulse{animation:none}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">AI &amp; ML Engineer · Milano</p>
+    <h1>Hi, I'm Nicola<span class="dot">.</span></h1>
+    <p class="lede">I'm a computer scientist and engineer, specialized in artificial intelligence — with a profound interest in their mathematical foundations and their applications.</p>
+
+    <p class="field-label">Area of Expertise</p>
+    <div class="tags">
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Time Series</span>
+      <span class="tag">Generative AI</span>
+      <span class="tag">Energy Systems</span>
+    </div>
+
+    <nav class="cta">
+      <a class="btn ghost" href="https://www.linkedin.com/in/nicola-petkovic" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="mailto:nicolapetkovic99@gmail.com">Get in touch</a>
+    </nav>
+
+    <p class="now"><span class="pulse"></span> Currently: Associate Data &amp; AI at Intellera Consulting (Accenture)</p>
+  </main>
+</body>
 </html>
